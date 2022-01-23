@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Sample WebExtension",
-  "version": "0.0.0",
+  "name": "Arabic Romanizer",
+  "version": "1.0.0",
   "icons": {
     "16": "assets/icons/favicon-16.png",
     "32": "assets/icons/favicon-32.png",
@@ -9,9 +9,9 @@
     "128": "assets/icons/favicon-128.png"
   },
 
-  "description": "Sample description",
-  "homepage_url": "https://github.com/abhijithvijayan/web-extension-starter",
-  "short_name": "Sample Name",
+  "description": "Convert Arabic text to English text",
+  "homepage_url": "https://github.com/GokulNC/Arabic-Romanizer-Web-Extension.git",
+  "short_name": "Arabic Romanizer",
 
   "permissions": [
     "activeTab",
@@ -24,9 +24,9 @@
   "__prod__content_security_policy": "script-src 'self'; object-src 'self'",
 
 
-  "__chrome|firefox__author": "abhijithvijayan",
+  "__chrome|firefox__author": "GokulNC",
   "__opera__developer": {
-    "name": "abhijithvijayan"
+    "name": "GokulNC"
   },
 
   "__firefox__applications": {
@@ -46,7 +46,7 @@
       "48": "assets/icons/favicon-48.png",
       "128": "assets/icons/favicon-128.png"
     },
-    "default_title": "tiny title",
+    "default_title": "Arabic-En",
     "__chrome|opera__chrome_style": false,
     "__firefox__browser_style": false
   },
@@ -68,10 +68,14 @@
   "content_scripts": [{
     "matches": [
       "http://*/*",
-      "https://*/*"
+      "https://*/*",
+      "file://*/*"
     ],
     "js": [
       "js/contentScript.bundle.js"
+    ],
+    "css": [
+      "css/contentScript.css"
     ]
   }]
 }

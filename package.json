@@ -1,14 +1,14 @@
 {
-  "name": "web-extension-starter",
+  "name": "arabic-romanizer",
   "version": "1.0.0",
-  "description": "Web extension starter",
+  "description": "Convert Arabic script to English script",
   "private": true,
   "license": "MIT",
-  "repository": "https://github.com/abhijithvijayan/web-extension-starter.git",
+  "repository": "https://github.com/GokulNC/Arabic-Romanizer-Web-Extension.git",
   "author": {
-    "name": "abhijithvijayan",
-    "email": "email@abhijithvijayan.in",
-    "url": "https://abhijithvijayan.in"
+    "name": "GokulNC",
+    "email": "gokulnc@ymail.com",
+    "url": "https://github.com/GokulNC"
   },
   "engines": {
     "node": ">=10.0.0",
@@ -29,6 +29,7 @@
     "@babel/runtime": "^7.14.0",
     "advanced-css-reset": "^1.2.2",
     "emoji-log": "^1.0.2",
+    "libindic-transliteration": "^1.2.0",
     "webext-base-css": "^1.3.1",
     "webextension-polyfill": "^0.8.0"
   },
