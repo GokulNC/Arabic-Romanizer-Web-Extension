@@ -70,6 +70,7 @@ Ensure you have
 
 - [Node.js](https://nodejs.org) 10 or later installed
 - [Yarn](https://yarnpkg.com) v1 or v2 installed
+- `set NODE_OPTIONS=--openssl-legacy-provider` (if you face [this error](https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported))
 
 Then run the following:
 

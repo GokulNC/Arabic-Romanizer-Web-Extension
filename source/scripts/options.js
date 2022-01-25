@@ -7,7 +7,7 @@
  * Copyright 2020 Subin Siby <mail@subinsb.com>
 */
 
-import Transliterator from 'libindic-transliteration';
+import ALA_LC_Transliterator from './ArabicTransliterator.js';
 
 import '../styles/options.scss';
 
@@ -18,14 +18,12 @@ form.onsubmit = function(e) {
     var l = document.getElementById('lang').value,
         input = document.getElementById('input').value,
         output = '',
-        t = new Transliterator();
+        t = new ALA_LC_Transliterator();
 
-    if (l === 'ml') {
-        output = t.transliterate_ml_en(input);
-    } else if (l === 'hi') {
-        output = t.transliterate_hi_en(input);
+    if (l === 'ar') {
+        output = t.romanize(input);
     } else {
-        output = t.transliterate_kn_en(input);
+        output = "Error: Lang not supported!";
     }
 
     document.getElementById('output').value = output;

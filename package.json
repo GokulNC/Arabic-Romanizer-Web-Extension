@@ -29,7 +29,6 @@
     "@babel/runtime": "^7.14.0",
     "advanced-css-reset": "^1.2.2",
     "emoji-log": "^1.0.2",
-    "libindic-transliteration": "^1.2.0",
     "webext-base-css": "^1.3.1",
     "webextension-polyfill": "^0.8.0"
   },

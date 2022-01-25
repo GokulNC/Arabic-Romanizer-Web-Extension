@@ -13,7 +13,7 @@ import '../styles/popup.scss';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const lang_elem = document.getElementById('lang');
-  var lang = 'ml';
+  var lang = 'ar';
 
   // Restore options
   browser.storage.sync.get({

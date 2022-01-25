@@ -8,7 +8,7 @@
 */
 
 import browser from 'webextension-polyfill';
-import Transliterator from 'libindic-transliteration';
+import ALA_LC_Transliterator from './ArabicTransliterator.js';
 import Tooltip from './tooltip.js';
 
 import '../styles/contentStyle.scss';
@@ -20,9 +20,7 @@ var t,
     transliterated_webpage = false,
     observer = null,
     langCodes = {
-      'ml': [3328, 3455, '0D00', '0D7F'], // 0x0D00 to 0x0D7F
-      'hi': [2304, 2431, '0900', '097F'], // 0x0900 to 0x097F
-      'kn': [3200, 3327, '0C80', '0CFF'] // 0x0C80 to 0x0CFF
+      'ar': [1536, 1791, '0600', '06FF'] // 0x0600 to 0x6FF
     },
     overlay = false;
 
@@ -46,13 +44,10 @@ function has_lang(input, lang) {
 }
 
 function transliterate(input, lang) {
-  if (lang === 'ml') {
-    return t.transliterate_ml_en(input);
-  } else if (lang === 'hi') {
-    return t.transliterate_hi_en(input);
-  } else {
-    return t.transliterate_kn_en(input);
+  if (lang === 'ar') {
+    return t.romanize(input);
   }
+  return "Error: Lang not supported!";
 }
 
 if (debug) {
@@ -148,7 +143,8 @@ function transliterate_elem_content(elem, lang) {
   nodes = elem.getElementsByClassName('indicened')
   for (var i = 0; i < nodes.length; ++i) {
     node = nodes[i];
-    node.textContent = transliterate(node.textContent, lang)
+    node.textContent = transliterate(node.textContent, lang);
+    node.setAttribute("dir", "ltr");
   }
 
   if (debug) {
@@ -178,7 +174,7 @@ function detectMob() {
 }
 
 function transliterate_webpage(lang) {
-  t = new Transliterator();
+  t = new ALA_LC_Transliterator();
   transliterate_elem_content(document.body, lang);
 
   // This will only run in desktop
@@ -205,6 +201,7 @@ function untransliterate_webpage() {
   for (let i = 0;i < nodes.length;i++) {
     node = nodes[i];
     node.innerText = node.dataset.indicenoriginal;
+    node.setAttribute("dir", "rtl");
   }
 
   transliterated_webpage = false
@@ -215,7 +212,7 @@ function init() {
   browser.storage.sync.get({
     auto: false,
     overlay: true,
-    lang: 'ml'
+    lang: 'ar'
   }).then((result) => {
     var lang = result.lang;
     overlay = result.overlay;
