@@ -7,6 +7,14 @@
 </tr>
 </table>
 
+## Credits
+
+<ul>
+  <li>This tool is modified from <a href="https://subinsb.com/indicen-convert-indian-language-websites-to-english-script/">Indic-En</a> : A web-extension to romanize Indic scripts. Thanks to <a href="https://github.com/subins2000">Subin Siby</a>!</li>
+  <li>Romanization code is derived from <a href="https://github.com/MTG/ArabicTransliterator">Arabic Transliterator</a>'s python library. Thanks to <a href="https://www.upf.edu/web/mtg/research">UPF MTG Group</a>!</li>
+  <li>This tool is made with the help of <a href="https://github.com/abhijithvijayan/web-extension-starter">Web-Extension Starter</a> to build "Write Once & Run on Any Browser" extension. Thanks to <a href="https://github.com/abhijithvijayan">Abhijith Vijayan</a>!</li>
+</ul>
+
 ## 🚀 Quick Start
 
 Ensure you have
