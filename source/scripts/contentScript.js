@@ -16,7 +16,7 @@ import '../styles/contentStyle.scss';
 
 console.log("aa");
 var t,
-    debug = sessionStorage.getItem('indicen_debug') || false,
+    debug = sessionStorage.getItem('arabicen_debug') || false,
     transliterated_webpage = false,
     observer = null,
     langCodes = {
@@ -51,7 +51,7 @@ function transliterate(input, lang) {
 }
 
 if (debug) {
-  sessionStorage.setItem('indicen_time_elapsed', 0);
+  sessionStorage.setItem('arabicen_time_elapsed', 0);
 }
 
 function transliterate_elem_content(elem, lang) {
@@ -62,7 +62,7 @@ function transliterate_elem_content(elem, lang) {
    * https://stackoverflow.com/a/31369978/1372424
    */
   var nodes = [],
-    regex = new RegExp('[\\u'+ langCodes[lang][2] +'-\\u'+ langCodes[lang][3] +'].*?[.!?,;:\n\'"]', 'g'), // \u0D00-\u0D7F
+    regex = new RegExp('[\\u'+ langCodes[lang][2] +'-\\u'+ langCodes[lang][3] +'0-9].*?[.!?,;:\n\'"]', 'g'),
     text = "",
     node,
     nodeIterator = elem.ownerDocument.createNodeIterator(
@@ -132,15 +132,15 @@ function transliterate_elem_content(elem, lang) {
       
       // Highlight the current node
       var spanNode = document.createElement("span");
-      spanNode.className = "indicened";
-      spanNode.dataset.indicenoriginal = node.textNode.textContent
+      spanNode.className = "arabicened";
+      spanNode.dataset.arabicenoriginal = node.textNode.textContent
       
       node.textNode.parentNode.replaceChild(spanNode, node.textNode);
       spanNode.appendChild(node.textNode);
     }
   }
 
-  nodes = elem.getElementsByClassName('indicened')
+  nodes = elem.getElementsByClassName('arabicened')
   for (var i = 0; i < nodes.length; ++i) {
     node = nodes[i];
     node.textContent = transliterate(node.textContent, lang);
@@ -148,8 +148,8 @@ function transliterate_elem_content(elem, lang) {
   }
 
   if (debug) {
-    sessionStorage.setItem('indicen_time_elapsed', parseFloat(sessionStorage.getItem('indicen_time_elapsed')) + (performance.now() - time));
-    console.log(sessionStorage.getItem('indicen_time_elapsed'))
+    sessionStorage.setItem('arabicen_time_elapsed', parseFloat(sessionStorage.getItem('arabicen_time_elapsed')) + (performance.now() - time));
+    console.log(sessionStorage.getItem('arabicen_time_elapsed'))
   }
 }
 

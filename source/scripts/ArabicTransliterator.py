@@ -3,6 +3,7 @@ Taken from: https://github.com/MTG/ArabicTransliterator/blob/master/ArabicTransl
 
 Transpile to JS:
 ```
+import pscript
 pscript.script2js("ArabicTransliterator.py")
 ```
 
@@ -45,7 +46,7 @@ class ALA_LC_Transliterator():
             u"\u1E93": u"\u0638", # Zaa' (DHaa')
             u"\u2018": u"\u0639", # cayn
             u"gh": u"\u063A", # ghayn
-            #u"_": u"\u0640", # taTwiil
+            u"–": u"\u0640", # taTwiil
             u"f": u"\u0641", # faa'
             u"q": u"\u0642", # qaaf
             u"k": u"\u0643", # kaaf
@@ -66,7 +67,26 @@ class ALA_LC_Transliterator():
             u"": u"\u0652", # sukuun
             #u"`": u"\u0670", # dagger 'alif
             #u"{": u"\u0671", # waSla
-            u" ": u" ",
+
+            # Punctuations
+            u".": u"۔",
+            u",": u"،",
+            u"?": u"؟",
+            u";": u"؛",
+            u"/": u"؍",
+            u"%": u"٪",
+
+            # Numerals
+            u"0": u"٠",
+            u"1": u"١",
+            u"2": u"٢",
+            u"3": u"٣",
+            u"4": u"٤",
+            u"5": u"٥",
+            u"6": u"٦",
+            u"7": u"٧",
+            u"8": u"٨",
+            u"9": u"٩",
         }
         # For a reverse transliteration (Unicode -> ALA-LC), a dictionary
         # which is the reverse of the above alalc2uni is essential.
@@ -201,8 +221,6 @@ class ALA_LC_Transliterator():
                             continue # don't add anything
                         else:
                             trans_data += "y"
-                elif data[i] == u"\u0640": # tatweel
-                    trans_data += '-'
                 else:
                     trans_data += data[i]
         ret_data = []
