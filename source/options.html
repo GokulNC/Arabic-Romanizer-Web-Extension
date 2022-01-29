@@ -1,41 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Options</title>
-  </head>
-  <body>
-    <div id="container">
-      <h1>Arabic-En</h1>
-      <p>Convert Arabic webpages to Aranglish.</p>
-      <div>
-        <div class="block with-logo">
-          <img src="assets/icons/favicon.svg" width="100%" />
-        </div>
-        <div class="block with-text">
-          <h2>About</h2>
-          <p>
-            This extension was made with ❤️ by <a href="https://subinsb.com/">Subin Siby</a>. [<a href="https://twitter.com/SubinSiby">Twitter</a>, <a href="https://www.instagram.com/subins2000">Instagram</a>]<br/>
-            Check out my <a href="https://subinsb.com/manglish">Android app Manglish</a> for Malayalam to Manglish conversion in your phone. <a href="https://subinsb.com/donate/" target="_blank"><button type="button">Support My Work :)</button></a>
-          </p>
-          <h3>Thanks</h3>
-          <ul>
-            <li><a href="https://libindic.org/Transliteration">libindic</a> : <a href="https://thottingal.in/">Santhosh Thottingal</a></li>
-          </ul>
-        </div>
-      </div>
-      <h2>Transliterator</h2>
-      <p>Transliterate from Arabic to English/Latin/Roman script. Convert to Aranglish. This works directly in the browser.</p>
-      <form id="transliterate-form">
-        <textarea class="materialize-textarea" id="input" placeholder="Paste text here..."></textarea>
-        <label>Language:</label>
-        <select class="browser-default" id="lang">
-          <option value="ar">Standard Arabic</option>
-        </select><br/><br/>
-        <button class="btn">Transliterate</button>
-      </form>
-      <textarea class="materialize-textarea" id="output" placeholder="Output will be shown here..." readonly="readonly"></textarea>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Options</title>
+</head>
+
+<body>
+  <div id="container">
+    <h1>Arabic Romanizer</h1>
+    <p>Arabic-En: Convert Arabic webpages to Aranglish.</p>
+    <hr />
+    <h2>Transliterator</h2>
+    <p>Transliterate from Arabic to English/Latin/Roman script:</p>
+    <form id="transliterate-form">
+      <textarea class="materialize-textarea" id="input" placeholder="Paste text here..."></textarea>
+      <label>Language:</label>
+      <select class="browser-default" id="lang">
+        <option value="ar">Standard Arabic</option>
+      </select><br /><br />
+      <button class="btn">Transliterate</button>
+    </form>
+    <textarea class="materialize-textarea" id="output" placeholder="Output will be shown here..."
+      readonly="readonly"></textarea>
+
+    <hr />
+    <div>
+      
+        <h2>About</h2>
+        <ul>
+          <li>This is an open-source web extension to romanize Arabic texts to <a href="https://en.wikipedia.org/wiki/Romanization_of_Arabic#Comparison_table">ALA-LC standard</a>.</li>
+          <li>If you have any questions or to report problems, please <a href="https://github.com/GokulNC/Arabic-Romanizer-Web-Extension/issues">raise an issue here</a>.</li>
+          <li>The source code can be <a href="https://github.com/GokulNC/Arabic-Romanizer-Web-Extension">found here on GitHub</a>. If you are a software engineer, feel free to contribute!</li>
+        </ul>
+        <h2>Credits</h2>
+        <ul>
+          <li>This tool is modified from <a href="https://subinsb.com/indicen-convert-indian-language-websites-to-english-script/">Indic-En</a> : A web-extension to romanize Indic scripts. Thanks to <a href="https://github.com/subins2000">Subin Siby</a>!</li>
+          <li>This tool is made with the help of <a href="https://github.com/abhijithvijayan/web-extension-starter">Web-Extension Starter</a> to build "Write Once & Run on Any Browser" extension. Thanks to <a href="https://github.com/abhijithvijayan">Abhijith Vijayan</a>!</li>
+          <li>Arabic Romanization code is taken from <a href="https://github.com/MTG/ArabicTransliterator">Arabic Transliterator</a>'s python library. Thanks to <a href="https://www.upf.edu/web/mtg/research">UPF MTG Group</a>!</li>
+        </ul>
+      
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
