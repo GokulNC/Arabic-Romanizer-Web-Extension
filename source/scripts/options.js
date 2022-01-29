@@ -1,5 +1,5 @@
 /*
- * Indic-En : WebExtension to transliterate webpages
+ * arabic-En : WebExtension to transliterate webpages
  * https://subinsb.com/indicen
  *
  * This work is licensed under GNU General Public License version 3.

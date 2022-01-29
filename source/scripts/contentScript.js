@@ -180,7 +180,7 @@ function transliterate_webpage(lang) {
   // This will only run in desktop
   if (overlay && !detectMob()) {
     let onMouseOver = async (e) => {
-      Tooltip.init('indicenoriginal')
+      Tooltip.init('arabicenoriginal')
       document.removeEventListener('mouseover', onMouseOver)
     }
     document.addEventListener('mouseover', onMouseOver);
@@ -195,12 +195,12 @@ function untransliterate_webpage() {
   if (observer)
     observer.disconnect()
 
-  var nodes = document.getElementsByClassName('indicened'),
+  var nodes = document.getElementsByClassName('arabicened'),
       node;
 
   for (let i = 0;i < nodes.length;i++) {
     node = nodes[i];
-    node.innerText = node.dataset.indicenoriginal;
+    node.innerText = node.dataset.arabicenoriginal;
     node.setAttribute("dir", "rtl");
   }
 
@@ -225,9 +225,9 @@ function init() {
         for (let mutation of mutationsList) {
           if (
             mutation.type === 'childList' &&
-            mutation.target.className !== 'indicened' &&
+            mutation.target.className !== 'arabicened' &&
             mutation.target.parentNode &&
-            mutation.target.parentNode.className.indexOf('indicen-tooltip-container') === -1
+            mutation.target.parentNode.className.indexOf('arabicen-tooltip-container') === -1
           ) {
             for (let elem of mutation.addedNodes) {
               transliterate_elem_content(elem, lang);

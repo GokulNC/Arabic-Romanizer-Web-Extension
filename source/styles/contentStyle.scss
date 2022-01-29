@@ -1,4 +1,4 @@
-#indicen-highlight {
+#arabicen-highlight {
     background-color: #b4deff;
     color: #000;
     -webkit-box-shadow: 2px 2px 4px #9999aa;
@@ -9,16 +9,16 @@
     -moz-box-sizing: border-box;
 }
 
-.indicen-no-display {
+.arabicen-no-display {
     display: none;
 }
 
-.indicen-tooltip-container {
+.arabicen-tooltip-container {
     transform: translateZ(0);
     position: absolute;
     max-width: 40%;
     padding: 8px 10px 10px;
-    font-family: "Ubuntu", sans-serif;
+    font-family: sans-serif;
     font-size: 0.9vw;
     background-color: #fff;
     color: #000;
@@ -71,7 +71,7 @@
         border-color: transparent transparent #2d2d2d transparent;
     }
 
-    .indicen-text:before {
+    .arabicen-text:before {
         content: "original text :";
         margin-bottom: 5px;
         display: block;
@@ -79,20 +79,9 @@
         font-size: 0.9vw;
     }
 
-    .indicen-text {
+    .arabicen-text {
         font-size: 1.1vw;
         line-height: 1.3vw;
-    }
-
-    .indicen-credit {
-        display: block;
-        margin-top: 5px;
-        text-decoration: underline;
-        color: #000;
-        background: url('https://raw.githubusercontent.com/subins2000/indicen/master/source/assets/icons/favicon-48.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        padding: 10px 45px;
     }
 }
 
