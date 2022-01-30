@@ -15,7 +15,7 @@
     <h2>Transliterator</h2>
     <p>Transliterate from Arabic to English/Latin/Roman script:</p>
     <form id="transliterate-form">
-      <textarea class="materialize-textarea" id="input" placeholder="Paste text here..."></textarea>
+      <textarea class="materialize-textarea" id="input" placeholder="Paste text here..." dir="rtl">السَلَامُ عَلَيْكُمْ</textarea>
       <label>Language:</label>
       <select class="browser-default" id="lang">
         <option value="ar">Standard Arabic</option>
@@ -23,7 +23,7 @@
       <button class="btn">Transliterate</button>
     </form>
     <textarea class="materialize-textarea" id="output" placeholder="Output will be shown here..."
-      readonly="readonly"></textarea>
+      readonly="readonly">al-salām ‘alaykum</textarea>
 
     <hr />
     <div>
