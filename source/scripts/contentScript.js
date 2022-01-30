@@ -14,13 +14,12 @@ import Tooltip from './tooltip.js';
 import '../styles/contentStyle.scss';
 
 
-console.log("aa");
 var t,
     debug = sessionStorage.getItem('arabicen_debug') || false,
     transliterated_webpage = false,
     observer = null,
     langCodes = {
-      'ar': [1536, 1791, '0600', '06FF'] // 0x0600 to 0x6FF
+      'ar': [1536, 1791, '[\\u0600-\\u06FF]']
     },
     overlay = false;
 
@@ -62,7 +61,7 @@ function transliterate_elem_content(elem, lang) {
    * https://stackoverflow.com/a/31369978/1372424
    */
   var nodes = [],
-    regex = new RegExp('[\\u'+ langCodes[lang][2] +'-\\u'+ langCodes[lang][3] +'0-9].*?[.!?,;:\n\'"]', 'g'),
+    regex = new RegExp('[0-9]*?' + langCodes[lang][2] + '.*?([.!?,;:\n\'"]|$)', 'g'),
     text = "",
     node,
     nodeIterator = elem.ownerDocument.createNodeIterator(
