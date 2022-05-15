@@ -3,9 +3,13 @@
 <table>
 <tr>
 <td><img src="source/assets/icons/favicon-128.png"/></td>
-<td>A web extension to convert Arabic text to English script on your browser, using ALA-LC transliteration scheme.</td>
+<td>A web extension to convert webpages in Arabic text to English script on your browser, using ALA-LC romanization scheme.</td>
 </tr>
 </table>
+
+## Download
+
+- [Chrome Store](https://chrome.google.com/webstore/detail/arabic-romanizer/lnpmajkeelelndcfjaaajpppefpjndoe)
 
 ## Credits
 
