@@ -150,7 +150,7 @@ ALA_LC_Transliterator.prototype.__init__ = function () {
 ALA_LC_Transliterator.prototype._ALA_LC_Transliterator__load_dictionary = function () {
     var key, stub1_seq, value;
     this.punctuations = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-    this.invtable = _pyfunc_create_dict("\u2019", "\u0621", "\u0101", "\u0622", "b", "\u0628", "T", "\u062a", "th", "\u062b", "j", "\u062c", "\u1e25", "\u062d", "kh", "\u062e", "d", "\u062f", "dh", "\u0630", "r", "\u0631", "z", "\u0632", "s", "\u0633", "sh", "\u0634", "\u1e63", "\u0635", "\u1e0d", "\u0636", "\u1e6d", "\u0637", "\u1e93", "\u0638", "\u2018", "\u0639", "gh", "\u063a", "\u2013", "\u0640", "f", "\u0641", "q", "\u0642", "k", "\u0643", "m", "\u0645", "n", "\u0646", "h", "\u0647", "an", "\u064b", "un", "\u064c", "in", "\u064d", "u", "\u064f", "i", "\u0650", "", "\u0652", ".", "\u06d4", ",", "\u060c", "?", "\u061f", ";", "\u061b", "/", "\u060d", "%", "\u066a", "0", "\u0660", "1", "\u0661", "2", "\u0662", "3", "\u0663", "4", "\u0664", "5", "\u0665", "6", "\u0666", "7", "\u0667", "8", "\u0668", "9", "\u0669");
+    this.invtable = _pyfunc_create_dict("\u2019", "\u0621", "\u0101", "\u0622", "b", "\u0628", "T", "\u062a", "\u1e6f", "\u062b", "j", "\u062c", "\u1e25", "\u062d", "\u1e96", "\u062e", "d", "\u062f", "\u1e0f", "\u0630", "r", "\u0631", "z", "\u0632", "s", "\u0633", "\u0161", "\u0634", "\u1e63", "\u0635", "\u1e0d", "\u0636", "\u1e6d", "\u0637", "\u1e93", "\u0638", "\u2018", "\u0639", "\u0121", "\u063a", "\u2013", "\u0640", "f", "\u0641", "q", "\u0642", "k", "\u0643", "m", "\u0645", "n", "\u0646", "h", "\u0647", "an", "\u064b", "un", "\u064c", "in", "\u064d", "u", "\u064f", "i", "\u0650", "", "\u0652", ".", "\u06d4", ",", "\u060c", "?", "\u061f", ";", "\u061b", "/", "\u060d", "%", "\u066a", "0", "\u0660", "1", "\u0661", "2", "\u0662", "3", "\u0663", "4", "\u0664", "5", "\u0665", "6", "\u0666", "7", "\u0667", "8", "\u0668", "9", "\u0669");
     this.table = ({});
     stub1_seq = this.invtable;
     for (key in stub1_seq) {
@@ -162,13 +162,14 @@ ALA_LC_Transliterator.prototype._ALA_LC_Transliterator__load_dictionary = functi
 };
 
 ALA_LC_Transliterator.prototype.romanize = function (data) {
-    var i, ret_data, stub2_seq, stub3_itr, trans_data, word;
+    var i, ret_data, roman_text, stub2_seq, stub3_itr, trans_data, word;
+    data = _pymeth_replace.call(data, "\u064e\u0651", "\u0651\u064e");
     trans_data = "";
     for (i = 0; i < data.length; i += 1) {
         if (_pyfunc_op_contains(data[i], this.table)) {
             trans_data = _pyfunc_op_add(trans_data, this.table[data[i]]);
         } else if (_pyfunc_op_equals(data[i], "\u0627")) {
-            if ((((data.length > (i + 1))) && _pyfunc_op_equals(data[i + 1], "\u0644") && ((_pyfunc_op_equals(i, 0) || ((i > 0) && _pyfunc_op_equals(data[i - 1], " ")))))) {
+            if ((((((data.length > (i + 1))) && _pyfunc_op_equals(data[i + 1], "\u0644"))) && ((_pyfunc_op_equals(i, 0) || ((i > 0) && _pyfunc_op_equals(data[i - 1], " ")))))) {
                 trans_data += "a";
             } else if (_pyfunc_op_equals(i, 0)) {
                 continue;
@@ -187,6 +188,7 @@ ALA_LC_Transliterator.prototype.romanize = function (data) {
             } else {
                 trans_data += "\u0101";
             }
+        } else if (_pyfunc_op_equals(data[i], "\u0671")) {
         } else if (_pyfunc_op_equals(data[i], "\u064a")) {
             if (((i > 0) && _pyfunc_op_equals(data[i - 1], "\u0650"))) {
                 if (((i > 1) && _pyfunc_op_contains(data[i - 2], ["\u064e", "\u064f"]))) {
@@ -307,7 +309,10 @@ ALA_LC_Transliterator.prototype.romanize = function (data) {
             _pymeth_append.call(ret_data, word);
         }
     }
-    return _pymeth_join.call(" ", ret_data);
+    roman_text = _pymeth_join.call(" ", ret_data);
+    roman_text = _pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(_pymeth_replace.call(roman_text, "th", "t\u00b7h"), "kh", "k\u00b7h"))), "dh", "d\u00b7h"))), "sh", "s\u00b7h"))), "gh", "g\u00b7h");
+    roman_text = _pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(_pymeth_replace.call(roman_text, "\u1e6f", "th"), "\u1e96", "kh"))), "\u1e0f", "dh"))), "\u0161", "sh"))), "\u0121", "gh");
+    return roman_text;
 };
 
 module.exports = ALA_LC_Transliterator

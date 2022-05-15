@@ -1,6 +1,6 @@
 {
   "name": "arabic-romanizer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert Arabic script to English script",
   "private": true,
   "license": "MIT",
