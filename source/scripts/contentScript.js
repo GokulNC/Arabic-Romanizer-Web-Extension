@@ -251,10 +251,10 @@ function init() {
   });
 }
 
-// On popup button click
+// On button click in the popup
 browser.runtime.onMessage.addListener(request => {
   if (request.lang) {
-    init()
+    init();
     transliterate_webpage(request.lang);
   } else if (request.untransliterate) {
     untransliterate_webpage();
@@ -263,4 +263,4 @@ browser.runtime.onMessage.addListener(request => {
   }
 });
 
-init()
+init();

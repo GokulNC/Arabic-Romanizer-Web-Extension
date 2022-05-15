@@ -34,9 +34,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // There will be only one active tab
   let tab = await browser.tabs.query({
+    // currentWindow: true,
+    lastFocusedWindow: true,
     active: true
   });
-  tab = tab[0]
+  tab = tab[0];
 
   document.getElementById('transliterate').addEventListener('click', async () => {
     browser.tabs.sendMessage(
